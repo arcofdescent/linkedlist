@@ -1,30 +1,34 @@
 // A singly linked list
 package linkedlist
 
+//import "fmt"
+
 type Node struct {
 	data int
-	Next *Node
+	next *Node
 }
 
-type List []Node
+type List struct {
+	items []Node
+}
 
 func CreateNew() List {
 	list := List{}
 	return list
 }
 
-func (l List) AppendToList(val int) {
-	li := Node{data: val, Next: nil}
+func (l *List) AppendTo(val int) {
+	li := Node{data: val, next: nil}
 
-	if len(l) > 0 {
-		l[len(l)-1].Next = &li
+	if len(l.items) > 0 {
+		l.items[len(l.items)-1].next = &li
 	}
 
-	l = append(l, li)
+	l.items = append(l.items, li)
 }
 
 /*
-func addToBeginningOfList(val int) []Node {
+func (l *List) PrependTo(val int) {
 	li := Node{data: val, next: &myList[0]}
 
 	var list []Node
