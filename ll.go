@@ -10,10 +10,10 @@ type List []Node
 
 func CreateNew() List {
 	list := List{}
-	return &list
+	return list
 }
 
-func (l *List) AppendToList(val int) {
+func (l List) AppendToList(val int) {
 	li := Node{data: val, Next: nil}
 
 	if len(l) > 0 {
