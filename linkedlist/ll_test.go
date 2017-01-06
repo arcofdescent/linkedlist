@@ -2,10 +2,12 @@ package linkedlist
 
 import "testing"
 
-//import "fmt"
-
 func TestCreate(t *testing.T) {
-	CreateNew()
+	li := CreateNew()
+
+	if len(li.GetItems()) != 0 {
+		t.Error("new list should be empty")
+	}
 }
 
 func TestAppend(t *testing.T) {

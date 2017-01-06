@@ -1,8 +1,6 @@
 // A singly linked list
 package linkedlist
 
-//import "fmt"
-
 type Node struct {
 	data int
 	next *Node
