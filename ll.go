@@ -17,7 +17,7 @@ func CreateNew() List {
 	return list
 }
 
-func (l *List) AppendTo(val int) {
+func (l *List) Append(val int) {
 	li := Node{data: val, next: nil}
 
 	if len(l.items) > 0 {
@@ -27,17 +27,26 @@ func (l *List) AppendTo(val int) {
 	l.items = append(l.items, li)
 }
 
-/*
-func (l *List) PrependTo(val int) {
-	li := Node{data: val, next: &myList[0]}
+func (l *List) Prepend(val int) {
+	li := Node{data: val, next: nil}
 
-	var list []Node
-	list = append(list, li)
-	list = append(list, myList[:]...)
+	if len(l.items) == 0 {
+		l.items = append(l.items, li)
+	} else {
+		li_c := []Node{}
 
-	return list
+		li_c = append(li_c, li)
+
+		for _, n := range l.items {
+			li_c = append(li_c, n)
+		}
+
+		l.items = li_c
+		l.items[0].next = &l.items[1]
+	}
 }
 
+/*
 func getFirst() int {
 	f_val := myList[0].data
 	return f_val
