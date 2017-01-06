@@ -46,26 +46,32 @@ func (l *List) Prepend(val int) {
 	}
 }
 
-/*
-func getFirst() int {
-	f_val := myList[0].data
+func (l *List) GetItems() []int {
+	ret := []int{}
+
+	for _, n := range l.items {
+		ret = append(ret, n.data)
+	}
+
+	return ret
+}
+
+func (l *List) GetFirst() int {
+	return l.items[0].data
+}
+
+func (l *List) GetLast() int {
+	return l.items[len(l.items)-1].data
+}
+
+func (l *List) GetAndRemoveFirst() int {
+	f_val := l.items[0].data
+	l.items = l.items[1:]
 	return f_val
 }
 
-func getLast() int {
-	f_val := myList[len(myList)-1].data
+func (l *List) GetAndRemoveLast() int {
+	f_val := l.items[len(l.items)-1].data
+	l.items = l.items[0 : len(l.items)-1]
 	return f_val
 }
-
-func getAndRemoveFirst() int {
-	f_val := myList[0].data
-	myList = myList[1:]
-	return f_val
-}
-
-func getAndRemoveLast() int {
-	f_val := myList[len(myList)-1].data
-	myList = myList[0 : len(myList)-1]
-	return f_val
-}
-*/
