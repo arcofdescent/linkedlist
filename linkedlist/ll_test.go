@@ -2,21 +2,24 @@ package linkedlist
 
 import "testing"
 
-func TestCreate(t *testing.T) {
-	li := CreateNew()
+//import "fmt"
 
-	if len(li.GetItems()) != 0 {
-		t.Error("new list should be empty")
-	}
+func TestCreate(t *testing.T) {
+	CreateNew()
+
+	/*
+		if len(li.GetItems()) != 0 {
+			t.Error("new list should be empty")
+		}
+	*/
 }
 
-func TestAppend(t *testing.T) {
-	expected := []int{2, 4, 0}
+func TestPrepend(t *testing.T) {
+	expected := []int{6, 0}
 
 	l := CreateNew()
-	l.Append(2)
-	l.Append(4)
-	l.Append(0)
+	l.Prepend(0)
+	l.Prepend(6)
 
 	got := l.GetItems()
 
@@ -27,14 +30,13 @@ func TestAppend(t *testing.T) {
 	}
 }
 
-func TestPrepend(t *testing.T) {
-	expected := []int{6, 0, 2, 4}
+func TestAppend(t *testing.T) {
+	expected := []int{2, 4, 0}
 
 	l := CreateNew()
 	l.Append(2)
 	l.Append(4)
-	l.Prepend(0)
-	l.Prepend(6)
+	l.Append(0)
 
 	got := l.GetItems()
 
