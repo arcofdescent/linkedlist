@@ -1,19 +1,19 @@
 // A singly linked list
 package linkedlist
 
-type Node struct {
+type Cell struct {
 	data int
-	next *Node
+	next *Cell
 }
 
 type List struct {
-	top      *Node
-	sentinel Node
+	top      *Cell
+	sentinel Cell
 }
 
 func CreateNew() List {
 	list := List{}
-	list.sentinel = Node{data: 0, next: nil}
+	list.sentinel = Cell{data: 0, next: nil}
 	list.top = &list.sentinel
 
 	return list
@@ -34,13 +34,13 @@ func (li *List) GetItems() []int {
 
 func (li *List) Prepend(val int) {
 	top := li.top
-	n := Node{data: val, next: top.next}
+	n := Cell{data: val, next: top.next}
 	top.next = &n
 }
 
 func (li *List) Append(val int) {
 	top := li.top
-	n := Node{data: val, next: nil}
+	n := Cell{data: val, next: nil}
 
 	for {
 		if top.next == nil {
