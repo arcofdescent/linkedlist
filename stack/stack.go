@@ -20,3 +20,22 @@ func (st *Stack) Push(val int) {
 func (st *Stack) Pop() int {
 	return st.list.GetAndRemoveLast()
 }
+
+func (st *Stack) Max() int {
+	items := st.list.GetItems()
+
+	max := getMax(items)
+	return max
+}
+
+func getMax(items []int) int {
+	max := items[0]
+
+	for _, val := range items {
+		if val > max {
+			max = val
+		}
+	}
+
+	return max
+}
